@@ -1,3 +1,30 @@
+body {
+    animation-name: fondo;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    background-color: springgreen;
+}
 table, td {
     border: 1px solid black;
+}
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+td {
+    height: 30px;
+    width: 30px;
+    text-align: center;
+}
+
+@keyframes fondo {
+    0% {
+        background-color: lavender;
+    }
+    49% {
+        background-color: lavenderblush;
+    }
+    100% {
+        background-color: lavender;
+    }
 }
