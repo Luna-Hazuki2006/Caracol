@@ -47,6 +47,8 @@ function redireccionar(direccion) {
     return direccion
 }
 
+const tiempo = ms => new Promise(res => setTimeout(res, ms));
+
 function rellamar(id, direccion) {
     let datos = id.split('-')
     switch (direccion) {
@@ -71,7 +73,7 @@ function rellamar(id, direccion) {
     return id
 }
 
-function rellenar() {
+async function rellenar() {
     let inicio = celdas[0]
     let direccion = direcciones[0]
     let id = inicio.id
@@ -99,6 +101,7 @@ function rellenar() {
             }
         }
         id = rellamar(id, direccion)
+        await tiempo(1000)
     }
 }
 
