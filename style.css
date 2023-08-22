@@ -4,6 +4,9 @@ body {
     animation-iteration-count: infinite;
     background-color: springgreen;
 }
+h1 {
+    text-align: center;
+}
 table, td {
     border: 1px solid black;
 }
