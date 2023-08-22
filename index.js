@@ -1,6 +1,7 @@
 const tabla = document.getElementById('caracol')
 const celdas = document.getElementsByTagName('td')
 const lineas = document.getElementsByTagName('tr')
+const numero = document.getElementById('n')
 const colores = [
     'red', 'crimson', 
     'firebrick', 'indianred', 
@@ -35,6 +36,20 @@ function enumerar() {
             celda.id = (i + 1) + '-' + (j + 1)
         }
     }   
+}
+
+function decidir() {
+    let interno = ''
+    for (let i = 0; i < numero.value; i++) {
+        interno += '<tr>'
+        for (let j = 0; j < numero.value; j++) {
+            interno += '<td></td>'
+        }
+        interno += '</tr>'
+    }
+    tabla.innerHTML = interno
+    enumerar()
+    rellenar()
 }
 
 function redireccionar(direccion) {
@@ -79,9 +94,9 @@ async function rellenar() {
     let id = inicio.id
     let original = id
     console.log(celdas.length);
-    for (let i = 0; i < celdas.length; i++) {
+    for (let i = 0; i < celdas.length + 1; i++) {
         console.log(i);
-        inicio.style.backgroundColor = colores[i]
+        // inicio.style.backgroundColor = colores[i]
         inicio = document.getElementById(id)
         if (inicio != undefined && inicio.innerText == '') {
             inicio.innerText = i + 1
