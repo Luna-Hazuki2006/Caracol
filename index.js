@@ -34,6 +34,7 @@ function enumerar() {
             const celda = linea.children[j];
             console.log(celda);
             celda.id = (i + 1) + '-' + (j + 1)
+            celda.classList.add('vacio')
         }
     }   
 }
@@ -96,11 +97,11 @@ async function rellenar() {
     console.log(celdas.length);
     for (let i = 0; i < celdas.length + 1; i++) {
         console.log(i);
-        // inicio.style.backgroundColor = colores[i]
         inicio = document.getElementById(id)
         if (inicio != undefined && inicio.innerText == '') {
             inicio.innerText = i + 1
             inicio.style.backgroundColor = colores[i]
+            inicio.classList.remove('vacio')
             original = id
         } else {
             direccion = redireccionar(direccion)
@@ -109,15 +110,21 @@ async function rellenar() {
             if (inicio == undefined || inicio.innerText != '') {
                 console.log(id);
                 console.log(direccion);
-                return
+                break
             } else {
                 inicio.innerText = i + 1
                 inicio.style.backgroundColor = colores[i]
+                inicio.classList.remove('vacio')
             }
         }
         id = rellamar(id, direccion)
         await tiempo(1000)
     }
+    console.log('hola');
+    inicio = document.getElementsByClassName('vacio').item(0)
+    inicio.innerText = celdas.length
+    inicio.style.backgroundColor = colores[celdas.length]
+    inicio.classList.remove('vacio')
 }
 
 enumerar()
